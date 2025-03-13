@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login and Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: left;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-link {
+      margin-top: 10px;
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Form -->
+  <div id="loginForm" class="form-container">
+    <h1>Login</h1>
+    <form>
+      <label>Email</label>
+      <input type="email" required placeholder="Enter your email">
+      <label>Password</label>
+      <input type="password" required placeholder="Enter your password">
+      <button type="submit">Login</button>
+    </form>
+    <p><a href="#forgotPassword">Forgot Password?</a></p>
+    <p class="toggle-link">Don't have an account? <a href="#signupForm">Sign up here</a>.</p>
+  </div>
+
+  <!-- Signup Form -->
+  <div id="signupForm" class="form-container hidden">
+    <h1>Sign Up</h1>
+    <form>
+      <label>Name</label>
+      <input type="text" required placeholder="Enter your name">
+      <label>Mobile</label>
+      <input type="number" required placeholder="Enter your mobile number">
+      <label>Email</label>
+      <input type="email" required placeholder="Enter your email">
+      <label>Password</label>
+      <input type="password" required placeholder="Create a password">
+      <button type="submit">Sign Up</button>
+    </form>
+    <p class="toggle-link">Already have an account? <a href="#loginForm">Login here</a>.</p>
+  </div>
+
+  <script>
+    // JavaScript to toggle between login and signup forms
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).classList.remove('hidden');
+        document.querySelector(this.getAttribute('href') === '#loginForm' ? '#signupForm' : '#loginForm').classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+
+</html>
